@@ -10,7 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="loading">
+  <div class="site-loader" role="status" aria-label="LUYP wordt geladen">
+    <video class="site-loader-video" autoplay muted playsinline preload="auto">
+      <source src="loading-video.mp4" type="video/mp4" />
+    </video>
+  </div>
   <div class="page-shell">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="LUYP home">
