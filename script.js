@@ -20,6 +20,7 @@ if(loaderSeen){
 }else if(loaderVideo){
   loaderVideo.addEventListener('ended',revealSite,{once:true});
   loaderVideo.addEventListener('error',revealSite,{once:true});
+  const loaderFallback=setTimeout(revealSite,7500);
   loaderVideo.play().catch(revealSite);
   window.addEventListener('load',()=>{
     if(loaderVideo.readyState<2)setTimeout(revealSite,1200);
