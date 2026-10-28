@@ -15,11 +15,24 @@
     .hero-copy{transform:translateX(calc(var(--intro-progress,0) * -24vw))}
     .hero-next{transform:translateY(calc((1 - var(--intro-progress,0)) * 18vh));}
     @media(max-width:760px){.hero-stage{min-height:135vh;padding:16vh 0 12vh;gap:17vh}.hero-copy,.hero-next{width:calc(100% - 16px)}.hero-copy{transform:translateX(calc(var(--intro-progress,0) * -8vw))}.hero-next{transform:translateY(calc((1 - var(--intro-progress,0)) * 14vh))}}
+    .services-header{height:94px;padding:0 5.2%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eeeae4;background:#fffdfb;position:relative;z-index:5}.services-brand{display:block;width:144px;height:52px;overflow:hidden}.services-brand video{display:block;width:100%;height:100%;object-fit:cover;object-position:center;background:#fff}.services-nav{display:flex;align-items:center;gap:36px;font-size:14px}.services-nav a{color:var(--ink);text-decoration:none;position:relative;white-space:nowrap}.services-nav a:not(.portal-link):after{content:'';position:absolute;bottom:-13px;left:0;width:0;height:2px;background:var(--ink);transition:.25s}.services-nav a:hover:after,.services-nav a.active:after{width:100%}.services-nav .portal-link{border:1px solid #d4cec4;border-radius:10px;padding:13px 16px;font-weight:600}.services-nav .portal-link span{font-size:18px;margin-right:5px}@media(max-width:900px){.services-header{height:auto;min-height:76px;gap:18px;align-items:center}.services-brand{width:122px;flex:0 0 122px}.services-nav{gap:20px;overflow-x:auto;justify-content:flex-start;padding:5px 0;font-size:12px;scrollbar-width:none}.services-nav::-webkit-scrollbar{display:none}.services-nav a:not(.portal-link):after{bottom:-8px}.services-nav .portal-link{padding:10px 12px}}
   </style>
 </head>
 <body>
   <div class="wrap services-wrap">
-    <div class="top"><a class="back" href="index.html">← Terug naar home</a></div>
+    <header class="services-header">
+      <a class="services-brand" href="index.html" aria-label="LUYP home">
+        <video autoplay muted playsinline preload="auto" poster="Minimalistisch LUYP-pantherlogo.png" aria-label="LUYP logo"><source src="loading-video.mp4" type="video/mp4"></video>
+      </a>
+      <nav class="services-nav" aria-label="Hoofdnavigatie">
+        <a href="index.html">Home</a>
+        <a class="active" href="diensten.html">Diensten</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="over-mij.html">Over mij</a>
+        <a href="contact.html">Contact</a>
+        <a class="portal-link" href="klantenportaal.html"><span>↗</span> Klantenportaal</a>
+      </nav>
+    </header>
     <main class="content services-content">
       <section class="services-hero" data-scroll-intro>
         <div class="hero-stage">
