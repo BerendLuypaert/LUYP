@@ -4,27 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Diensten — LUYP</title>
-  <link rel="stylesheet" href="prototype.css?v=services-layout-1">
+  <link rel="stylesheet" href="prototype.css?v=services-scroll-2">
 </head>
 <body>
   <div class="wrap services-wrap">
     <div class="top"><a class="back" href="index.html">← Terug naar home</a></div>
     <main class="content services-content">
-      <section class="services-hero">
-        <div class="label">Diensten · LUYP</div>
-        <h1>Een merk dat<br><em>blijft hangen.</em></h1>
-        <p>Ik maak digitale ervaringen met karakter — van je eerste idee tot een merk dat mensen onthouden.</p>
-        <a class="services-cta" href="contact.html">Bespreek je idee <span>↗</span></a>
-        <div class="services-visual" aria-hidden="true"><img src="assets/organic-black-05.png" alt=""></div>
-      </section>
-      <section class="services-overview">
-        <div class="overview-copy">
-          <div><span class="overview-label">Wat ik voor je doe</span><h2>Van eerste indruk naar <em>sterke connectie.</em></h2></div>
-          <p>Geen standaardpakket, wel een persoonlijke samenwerking. Samen bouwen we aan iets dat helder voelt, goed werkt en helemaal bij jouw bedrijf past.</p>
+      <section class="services-hero" data-scroll-intro>
+        <div class="hero-stage">
+          <div class="hero-copy">
+            <div class="label">Diensten · LUYP</div>
+            <h1>Een merk dat<br><em>blijft hangen.</em></h1>
+            <p>Ik maak digitale ervaringen met karakter — van je eerste idee tot een merk dat mensen onthouden.</p>
+            <a class="services-cta" href="contact.html">Bespreek je idee <span>↗</span></a>
+          </div>
+          <div class="hero-next">
+            <span class="overview-label">Wat ik voor je doe</span>
+            <h2>Van eerste indruk naar <em>sterke connectie.</em></h2>
+            <p>Geen standaardpakket, wel een persoonlijke samenwerking. Samen bouwen we aan iets dat helder voelt, goed werkt en helemaal bij jouw bedrijf past.</p>
+          </div>
         </div>
+      </section>
+
+      <section class="services-overview">
         <div class="service-list">
           <section class="service-category category-digital">
-            <div class="category-heading"><span>01 · digitaal</span><h3>Een sterke basis</h3><p>Alles om online helder en goed zichtbaar te zijn.</p></div>
+            <div class="category-heading"><span>01 · digitaal</span><h3>Een sterke basis</h3><p>Alles om online helder en goed naar boven komt.</p></div>
             <div class="category-cards">
               <article><span>01</span><h4>Websites</h4><p>Een website die helder voelt, goed werkt en jouw bedrijf professioneel presenteert.</p></article>
               <article><span>02</span><h4>Onderhoud</h4><p>Ik houd je website actueel, veilig en goed werkend na de lancering.</p></article>
@@ -47,5 +52,22 @@
     </main>
     <div class="foot"><span>LUYP — Digital design with character.</span><span>© 2026</span></div>
   </div>
+  <script>
+    (() => {
+      const intro = document.querySelector('[data-scroll-intro]');
+      const copy = document.querySelector('.hero-copy');
+      const next = document.querySelector('.hero-next');
+      if (!intro || !copy || !next) return;
+      const update = () => {
+        const distance = Math.max(intro.offsetHeight - window.innerHeight, 1);
+        const progress = Math.min(1, Math.max(0, window.scrollY / distance));
+        copy.style.setProperty('--intro-progress', progress);
+        next.style.setProperty('--intro-progress', progress);
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
 </body>
 </html>
