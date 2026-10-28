@@ -4,7 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Diensten — LUYP</title>
-  <link rel="stylesheet" href="prototype.css?v=services-scroll-2">
+  <link rel="stylesheet" href="prototype.css?v=services-scroll-3">
+  <style>
+    .hero-next{left:50%;top:calc(50% + 235px);width:min(680px,78%);text-align:center;transform:translate(-50%,calc((1 - var(--intro-progress,0)) * 38vh));opacity:var(--intro-progress,0)}
+    .hero-next h2{margin:18px auto 20px}
+    .hero-next>p{max-width:560px;margin:0 auto}
+    @media(max-width:760px){.hero-next{left:50%;top:calc(50% + 265px);width:calc(100% - 16px);transform:translate(-50%,calc((1 - var(--intro-progress,0)) * 32vh))}.hero-next h2{font-size:clamp(38px,11vw,60px)}.hero-next>p{font-size:15px}}
+    .hero-stage{height:auto;min-height:140vh;position:relative;top:auto;overflow:hidden;padding:20vh 0 18vh;display:flex;flex-direction:column;align-items:center;gap:18vh}
+    .hero-copy,.hero-next{position:relative;left:auto;top:auto;width:min(680px,78%)}
+    .hero-copy{transform:translateX(calc(var(--intro-progress,0) * -24vw))}
+    .hero-next{transform:translateY(calc((1 - var(--intro-progress,0)) * 18vh));}
+    @media(max-width:760px){.hero-stage{min-height:135vh;padding:16vh 0 12vh;gap:17vh}.hero-copy,.hero-next{width:calc(100% - 16px)}.hero-copy{transform:translateX(calc(var(--intro-progress,0) * -8vw))}.hero-next{transform:translateY(calc((1 - var(--intro-progress,0)) * 14vh))}}
+  </style>
 </head>
 <body>
   <div class="wrap services-wrap">
