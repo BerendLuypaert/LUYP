@@ -1,6 +1,6 @@
 #diensten{overflow:visible}
 #diensten{min-height:170vh;position:relative}
-#diensten .service-grid{position:sticky;top:24vh}
+#diensten .service-grid{position:sticky;top:calc(100vh - 380px)}
 #diensten .service-card{--service-lift:0px;transform:translateY(var(--service-lift));will-change:transform;transition:transform .12s linear}
 #diensten .service-card:hover{transform:translateY(calc(var(--service-lift) - 7px))}
 @media(prefers-reduced-motion:reduce){#diensten .service-card{transform:none!important;transition:none}}
