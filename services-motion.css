@@ -4,8 +4,8 @@
 #diensten .service-card{--service-lift:0px;--service-opacity:1;transform:translateY(var(--service-lift));opacity:var(--service-opacity);will-change:transform,opacity;transition:transform .12s linear,opacity .12s linear}
 #diensten .service-card:hover{transform:translateY(calc(var(--service-lift) - 7px))}
 #diensten .service-card{overflow:hidden}
-#diensten .card-hover-orbit{position:absolute;right:-21px;bottom:-15px;width:122px;height:108px;pointer-events:none;opacity:0;transform:scale(.62) rotate(-8deg);transform-origin:center;transition:opacity .25s ease,transform .35s cubic-bezier(.2,.8,.2,1);z-index:3;background:url('assets/organic-black-05.png') 74% 64%/285% auto no-repeat;mix-blend-mode:multiply;filter:contrast(1.25)}
-#diensten .service-card.is-hovered .card-hover-orbit{opacity:.95;transform:scale(1) rotate(-3deg)}
+#diensten .card-hover-orbit{position:absolute;left:var(--cursor-x);top:var(--cursor-y);width:122px;height:108px;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.62) rotate(-8deg);transform-origin:center;transition:opacity .25s ease,transform .35s cubic-bezier(.2,.8,.2,1);z-index:3;background:url('assets/organic-black-05.png') 74% 64%/285% auto no-repeat;mix-blend-mode:multiply;filter:contrast(1.25)}
+#diensten .service-card.is-hovered .card-hover-orbit{opacity:.95;transform:translate(-50%,-50%) scale(1) rotate(-3deg)}
 @media(pointer:coarse){#diensten .card-hover-orbit{display:none}}
 @media(prefers-reduced-motion:reduce){#diensten .service-card{transform:none!important;transition:none}}
 @media(max-width:800px){#diensten{min-height:auto}#diensten .service-grid{position:relative;top:auto}}
