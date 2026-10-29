@@ -12,12 +12,6 @@
       if (event.pointerType !== 'mouse') return;
       card.classList.add('is-hovered');
     });
-    card.addEventListener('pointermove', (event) => {
-      if (event.pointerType !== 'mouse') return;
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--cursor-x', (event.clientX - rect.left) + 'px');
-      card.style.setProperty('--cursor-y', (event.clientY - rect.top) + 'px');
-    });
     card.addEventListener('pointerleave', () => card.classList.remove('is-hovered'));
   });
 
