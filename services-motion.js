@@ -3,6 +3,24 @@
   const cards = [...document.querySelectorAll('#diensten .service-card')];
   if (!section || cards.length < 3) return;
 
+  cards.forEach((card) => {
+    const orbit = document.createElement('span');
+    orbit.className = 'card-hover-orbit';
+    orbit.setAttribute('aria-hidden', 'true');
+    card.appendChild(orbit);
+    card.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      card.classList.add('is-hovered');
+    });
+    card.addEventListener('pointermove', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--cursor-x', (event.clientX - rect.left) + 'px');
+      card.style.setProperty('--cursor-y', (event.clientY - rect.top) + 'px');
+    });
+    card.addEventListener('pointerleave', () => card.classList.remove('is-hovered'));
+  });
+
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
