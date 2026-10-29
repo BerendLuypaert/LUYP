@@ -9,14 +9,18 @@
   const update = () => {
     if (reduceMotion.matches) return;
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-    const travel = Math.max(window.innerHeight * .9, 480);
-    const progress = clamp((window.scrollY - sectionTop + window.innerHeight * .62) / travel, 0, 1);
+    const travel = Math.max(section.offsetHeight - window.innerHeight, 600);
+    const progress = clamp((window.scrollY - sectionTop + window.innerHeight * .55) / travel, 0, 2);
     const starts = [0, .28, .56];
+    const exitStarts = [0, .2, .4];
 
     cards.forEach((card, index) => {
-      const localProgress = clamp((progress - starts[index]) / .34, 0, 1);
+      const localProgress = clamp((Math.min(progress, 1) - starts[index]) / .34, 0, 1);
+      const exitProgress = clamp((progress - 1 - exitStarts[index]) / .35, 0, 1);
       const distance = clamp(card.offsetHeight * .58, 110, 180);
-      card.style.setProperty('--service-lift', (-distance * localProgress) + 'px');
+      const exitDistance = window.innerHeight * 1.05 + index * 45;
+      card.style.setProperty('--service-lift', (-distance * localProgress - exitDistance * exitProgress) + 'px');
+      card.style.setProperty('--service-opacity', 1 - exitProgress);
     });
   };
 
