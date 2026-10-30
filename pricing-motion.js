@@ -1,6 +1,7 @@
 (() => {
   const section = document.querySelector('#prijzen');
   const cards = [...document.querySelectorAll('.price-card')];
+  const cta = document.querySelector('.pricing-cta');
   if (!section || !cards.length) return;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const rotations = [-9, 7, -5];
@@ -9,6 +10,7 @@
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     const travel = Math.max(section.offsetHeight - window.innerHeight, 1);
     const progress = clamp((window.scrollY - sectionTop + window.innerHeight * .5) / travel, 0, 1);
+    cta?.classList.toggle('is-released', progress >= .98);
     cards.forEach((card, index) => {
       const local = clamp((progress - starts[index]) / .3, 0, 1);
       card.style.setProperty('--card-opacity', local);
