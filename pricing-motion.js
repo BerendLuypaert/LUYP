@@ -23,14 +23,21 @@
   update();
 
   const line = document.querySelector('.pricing-cta-line');
-  const circle = line?.querySelector('span');
+  const circle = line?.querySelector('.pricing-cta-circle');
+  let hideTimer;
   if (line && circle) {
-    line.addEventListener('pointerenter', () => line.classList.add('is-active'));
+    line.addEventListener('pointerenter', () => {
+      clearTimeout(hideTimer);
+      line.classList.add('is-active');
+    });
     line.addEventListener('pointermove', (event) => {
       const bounds = line.getBoundingClientRect();
       const x = Math.min(bounds.width, Math.max(0, event.clientX - bounds.left));
       line.style.setProperty('--line-x', `${(x / bounds.width) * 100}%`);
     });
-    line.addEventListener('pointerleave', () => line.classList.remove('is-active'));
+    line.addEventListener('pointerleave', () => {
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(() => line.classList.remove('is-active'), 450);
+    });
   }
 })();
