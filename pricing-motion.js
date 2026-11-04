@@ -6,11 +6,13 @@
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const rotations = [-9, 7, -5];
   const starts = [0, .27, .54];
+  let syncLineFromPointer = () => {};
   const update = () => {
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     const travel = Math.max(section.offsetHeight - window.innerHeight, 1);
     const progress = clamp((window.scrollY - sectionTop + window.innerHeight * .5) / travel, 0, 1);
     cta?.classList.toggle('is-released', progress >= .98);
+    syncLineFromPointer();
     cards.forEach((card, index) => {
       const local = clamp((progress - starts[index]) / .3, 0, 1);
       card.style.setProperty('--card-opacity', local);
@@ -26,6 +28,28 @@
   const circle = line?.querySelector('.pricing-cta-circle');
   let hideTimer;
   if (line && circle) {
+    let pointerPosition = null;
+    syncLineFromPointer = () => {
+      if (!pointerPosition) return;
+      const bounds = line.getBoundingClientRect();
+      const isOver = pointerPosition.clientX >= bounds.left
+        && pointerPosition.clientX <= bounds.right
+        && pointerPosition.clientY >= bounds.top
+        && pointerPosition.clientY <= bounds.bottom;
+      if (!isOver) {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => line.classList.remove('is-active'), 450);
+        return;
+      }
+      clearTimeout(hideTimer);
+      line.classList.add('is-active');
+      const x = Math.min(bounds.width, Math.max(0, pointerPosition.clientX - bounds.left));
+      line.style.setProperty('--line-x', `${(x / bounds.width) * 100}%`);
+    };
+    window.addEventListener('pointermove', (event) => {
+      pointerPosition = {clientX: event.clientX, clientY: event.clientY};
+      syncLineFromPointer();
+    }, {passive:true});
     line.addEventListener('pointerenter', () => {
       clearTimeout(hideTimer);
       line.classList.add('is-active');
