@@ -15,11 +15,7 @@
     section.classList.toggle('scene-mode', sceneProgress > .05);
     section.style.setProperty('--scene-opacity', sceneProgress);
     section.style.setProperty('--scene-preview-opacity', clamp((sceneProgress - .12) / .88, 0, 1));
-    const browserProgress = clamp(sceneProgress / .9, 0, 1);
-    section.style.setProperty('--browser-left', `${50 - browserProgress * 19}%`);
-    section.style.setProperty('--browser-top', `${50 + browserProgress * 19}%`);
-    section.style.setProperty('--browser-scale', `${1.08 - browserProgress * .08}`);
-    section.style.setProperty('--browser-opacity', clamp(sceneProgress / .16, 0, 1));
+    section.style.setProperty('--screen-scale', `${1 - sceneProgress * .48}`);
     section.style.setProperty('--deck-opacity', 1 - sceneProgress);
     section.style.setProperty('--scene-scale', 1 - sceneProgress * .52);
     section.style.setProperty('--scene-x', `${-6 * sceneProgress}vw`);
