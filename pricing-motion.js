@@ -11,6 +11,11 @@
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     const travel = Math.max(section.offsetHeight - window.innerHeight, 1);
     const progress = clamp((window.scrollY - sectionTop + window.innerHeight * .5) / travel, 0, 1);
+    const sceneProgress = clamp((progress - .68) / .32, 0, 1);
+    section.style.setProperty('--scene-opacity', sceneProgress);
+    section.style.setProperty('--scene-scale', 1 - sceneProgress * .52);
+    section.style.setProperty('--scene-x', `${-6 * sceneProgress}vw`);
+    section.style.setProperty('--scene-y', `${49 * sceneProgress}vh`);
     cta?.classList.toggle('is-released', progress >= .98);
     syncLineFromPointer();
     cards.forEach((card, index) => {
