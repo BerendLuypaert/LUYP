@@ -2,6 +2,8 @@
   const section = document.querySelector('#prijzen');
   const cards = [...document.querySelectorAll('.price-card')];
   const cta = document.querySelector('.pricing-cta');
+  const browser = document.querySelector('.desktop-browser');
+  const closeBrowser = browser?.querySelector('.browser-dot-close');
   if (!section || !cards.length) return;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const rotations = [-9, 7, -5];
@@ -36,6 +38,10 @@
   window.addEventListener('scroll', update, {passive:true});
   window.addEventListener('resize', update);
   update();
+
+  closeBrowser?.addEventListener('click', () => {
+    browser.classList.add('is-closed');
+  });
 
   const line = document.querySelector('.pricing-cta-line');
   const circle = line?.querySelector('.pricing-cta-circle');
