@@ -13,7 +13,8 @@
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     const travel = Math.max(section.offsetHeight - window.innerHeight, 1);
     const progress = clamp((window.scrollY - sectionTop + window.innerHeight * .5) / travel, 0, 1);
-    const sceneProgress = clamp((progress - .76) / .24, 0, 1);
+    const sceneProgress = clamp((progress - .84) / .16, 0, 1);
+    if (progress <= .01) browser?.classList.remove('is-closed');
     section.classList.toggle('scene-mode', sceneProgress > .05);
     section.style.setProperty('--scene-opacity', sceneProgress);
     section.style.setProperty('--scene-preview-opacity', clamp((sceneProgress - .12) / .88, 0, 1));

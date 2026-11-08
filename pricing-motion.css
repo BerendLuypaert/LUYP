@@ -7,6 +7,7 @@
 @media(max-width:800px){.pricing-cta{padding:90px 7% 70px}.pricing-cta p{font-size:clamp(28px,8vw,44px);margin-bottom:48px}.pricing-cta-circle{width:126px;height:126px;font-size:12px}}
 .browser-dot-close{appearance:none;border:0;padding:0;cursor:pointer;background:#e23d35!important}.desktop-browser.is-closed{opacity:0!important;visibility:hidden;pointer-events:none}
 .desktop-icon-hotspot{border-radius:8px!important}.desktop-icon-about{right:1.6%!important;top:4%!important;width:11%!important;height:21%!important}
+.pricing-section{min-height:260vh}@media(max-width:800px){.pricing-section{min-height:280vh}}
 .pricing-deck{opacity:var(--deck-opacity,1)}.pricing-cta{z-index:40}.desktop-browser-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4%;height:calc(100% - 3.6vh);padding:2.5% 3%;opacity:var(--scene-preview-opacity,0)}.desktop-browser-cards img{display:block;width:100%;height:100%;object-fit:contain;min-width:0;border-radius:5px}
 @media(max-width:800px){.desktop-browser-cards{padding:2.5% 2%;gap:1%}}
 .desktop-stage{width:100vw;margin-left:calc((100% - 100vw)/2);overflow:hidden}.desktop-browser-cards{position:relative;z-index:2;height:calc(100% - 3.6vh);padding:2.5% 3%;gap:1.4%;align-items:stretch}.desktop-browser-cards img{height:100%;object-fit:contain;object-position:center bottom}
