@@ -15,7 +15,7 @@
     const rawProgress = (window.scrollY - sectionTop + window.innerHeight * .5) / travel;
     const progress = clamp(rawProgress, 0, 1);
     const sceneProgress = clamp((progress - .72) / .12, 0, 1);
-    section.style.setProperty('--screen-exit', clamp((progress - .97) / .025, 0, 1));
+    section.style.setProperty('--screen-exit', clamp((progress - .96) / .04, 0, 1));
     if (progress <= .01) browser?.classList.remove('is-closed');
     section.classList.toggle('scene-mode', sceneProgress > .05);
     section.style.setProperty('--scene-opacity', sceneProgress);
