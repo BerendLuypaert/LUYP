@@ -5,16 +5,16 @@
   if (!section || !cards.length) return;
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const rotations = [-9, 7, -5];
-  const starts = [0, .27, .54];
+  const starts = [0, .18, .36];
   let syncLineFromPointer = () => {};
   const update = () => {
     const sectionTop = section.getBoundingClientRect().top + window.scrollY;
     const travel = Math.max(section.offsetHeight - window.innerHeight, 1);
     const progress = clamp((window.scrollY - sectionTop + window.innerHeight * .5) / travel, 0, 1);
-    const sceneProgress = clamp((progress - .68) / .32, 0, 1);
+    const sceneProgress = clamp((progress - .76) / .24, 0, 1);
     section.classList.toggle('scene-mode', sceneProgress > .05);
     section.style.setProperty('--scene-opacity', sceneProgress);
-    section.style.setProperty('--scene-preview-opacity', clamp((sceneProgress - .72) / .28, 0, 1));
+    section.style.setProperty('--scene-preview-opacity', clamp((sceneProgress - .12) / .88, 0, 1));
     section.style.setProperty('--deck-opacity', 1 - sceneProgress);
     section.style.setProperty('--scene-scale', 1 - sceneProgress * .52);
     section.style.setProperty('--scene-x', `${-6 * sceneProgress}vw`);
